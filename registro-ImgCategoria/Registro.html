@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registro2.css">
+    <!-- para el icono de subir imagen -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="titulo">Registrar Receta</div>
+    <div class="container">
+        <div class="cont-columna">
+            <div class="columna">Nombre <br>
+                <input class="ingresoTexto" id="titulo" placeholder="Titulo de la receta" />
+            </div>
+            <div class="columna">
+                <div >Porciones<br>
+                    <input class="porciones" id="porciones" placeholder="#" type="number" min="1" max="30" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="categoria"> Categoria
+        <label class="espacio"><input type="radio" name="categoria" value="Desayunos" required> Desayuno</label>
+        <label class="espacio"><input type="radio" name="categoria" value="Almuerzos"> Almuerzo</label>
+        <label class="espacio"><input type="radio" name="categoria" value="Cenas"> Cena</label>
+        <label class="espacio"><input type="radio" name="categoria" value="Meriendas"> Merienda</label>
+        <label class="espacio"><input type="radio" name="categoria" value="Jugos"> Bebida</label>
+        </div>
+        
+    
+        <div class="cont-columna">
+            <div class="columna">
+                <div id="añadir">Ingredientes<br>
+                    <input class="ingresoTexto" id="1" placeholder="Ingrese ingrediente" /> <br />
+                    <input class="ingresoTexto" id="2" placeholder="Ingrese ingrediente" /> <br />
+                </div>
+                <input type="button" class="botonAdd" onclick="aniadirIngredientes();" value="Añadir ingrediente" />
+                <div>Valor Nutricional
+                    <div id="valor">
+                      <input class="ingresoTexto" id="101" placeholder="Ingrese valor nutricional" /> <br />
+                      <input class="ingresoTexto" id="102" placeholder="Ingrese valor nutricional" /> <br />
+                    </div>
+                    <input type="button" class="botonAdd" onclick="aniadirValor();" value="Añadir info. nutricional" />
+                </div>
+            </div>
+            <div class="columna">
+                <div> 
+                    <form class="seccion">Preparación <br>
+                      <div id="preparacion">
+                        <input class="ingresoTexto" id="51" placeholder="Ingrese paso" /> <br />
+                        <input class="ingresoTexto" id="52" placeholder="Ingrese paso" /> <br />
+                      </div>
+                      <input type="button" class="botonAdd" onclick="aniadirPasos();" value="Añadir pasos" />
+                    </form>
+                </div>
+                <div>Imagen
+                    <input type="file" id="file"  accept=".jpg,.png,.jpeg" onchange="revisarImagen(this)">
+
+                    <label class="subirImagen" for="file">
+                        <i class="material-icons">
+                          add_photo_alternate
+                        </i>
+                        &nbsp;&nbsp;Sube una fotografia de la receta
+                        
+                      </label>&nbsp;
+                      <img id="img" src="" width="" height="" >
+               </div>
+            </div>
+
+        </div>
+        <div class="final">
+            <input type="button" class="botonRegistrar" onclick="registrar();" value="Registrar" />
+          </div>
+    </div>
+
+</body>
+<script src="registro.js"></script>
+<!--Scripts necesarios para la base de datos-->
+<!--<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>-->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+<!--Scripts para el funcionamiento-->
+<script src="base.js"></script>
+<script src="registrar.js"></script>
+</html>
